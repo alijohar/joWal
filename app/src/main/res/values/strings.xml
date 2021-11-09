@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">joWal</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_wallet">Wallet</string>
+    <string name="title_scan">Scan</string>
 </resources>
