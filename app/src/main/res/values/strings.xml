@@ -4,4 +4,10 @@
     <string name="title_setting">Setting</string>
     <string name="title_wallet">Wallet</string>
     <string name="title_scan">Scan</string>
+    <string name="card_number">Card number</string>
+    <string name="name_on_card">Name on card</string>
+    <string name="expire_date">Expire date</string>
+    <string name="card_id">Card ID</string>
+    <string name="shiba_number">Shiba number</string>
+    <string name="update_card">Update card</string>
 </resources>
