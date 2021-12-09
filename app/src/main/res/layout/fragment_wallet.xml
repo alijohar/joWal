@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.aj.jowal.ui.wallet.WalletViewModel" />
+    </data>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,12 +29,65 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/gray"
-        app:cardCornerRadius="@dimen/activity_horizontal_margin" />
+        app:cardCornerRadius="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_temp_bank_logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@={viewModel.cardNumber}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:alpha="0.2"
+                android:text="@={viewModel.shibaCard}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/double_activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.cardName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.expireDate}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,18 +103,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/card_number"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:hint="@string/card_number">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:layout_width="match_parent"
-                    android:inputType="number"
+                    android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content" />
+                    android:text="@={viewModel.cardNumber}"
+                    android:inputType="number"
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,12 +127,13 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:hint="@string/name_on_card">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:layout_width="match_parent"
-                    android:inputType="textNoSuggestions"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.cardName}"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content" />
+                    android:inputType="textNoSuggestions"
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,12 +145,13 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:hint="@string/expire_date">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:text="@={viewModel.expireDate}"
                     android:layout_width="match_parent"
-                    android:inputType="datetime"
+                    android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content" />
+                    android:inputType="datetime"
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,10 +165,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:inputType="number"
+                    android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content" />
+                    android:inputType="number"
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,26 +176,28 @@
                 android:id="@+id/shiba_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:hint="@string/shiba_number">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:inputType="number"
+                    android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content" />
+                    android:inputType="number"
+                    android:text="@={viewModel.shibaCard}"
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/colorOnSecondary"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:background="@android:color/transparent"
-                android:text="@string/update_card" />
+                android:text="@string/update_card"
+                android:textColor="?attr/colorOnSecondary" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+</layout>
