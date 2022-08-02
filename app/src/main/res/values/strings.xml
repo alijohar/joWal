@@ -10,4 +10,6 @@
     <string name="card_id">Card ID</string>
     <string name="shiba_number">Shiba number</string>
     <string name="update_card">Update card</string>
+    <string name="cancel">cancel</string>
+    <string name="add_card">Add New Card</string>
 </resources>

@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/ic_scan.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/ic_temp_bank_logo.xml" value="0.213" />
+        <entry key="app/src/main/res/drawable/radius_rounded.xml" value="0.213" />
+        <entry key="app/src/main/res/drawable/selector_color.xml" value="0.213" />
+        <entry key="app/src/main/res/layout/activity_add_card.xml" value="0.5197278911564626" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.41510416666666666" />
         <entry key="app/src/main/res/layout/fragment_scan.xml" value="0.41510416666666666" />
         <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.41510416666666666" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.69375" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.6947916666666667" />
       </map>
     </option>
   </component>

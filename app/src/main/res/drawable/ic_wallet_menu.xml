@@ -4,38 +4,32 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
   <path
-      android:pathData="M22.632,13.015L1.5,13.015"
+      android:pathData="M22.695,14.327H18.35C16.768,14.327 15.486,13.052 15.486,11.478C15.486,9.905 16.768,8.63 18.35,8.63H22.661"
       android:strokeLineJoin="round"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:strokeColor="#666"
+      android:strokeColor="#ffffff"
       android:strokeLineCap="round"/>
   <path
-      android:pathData="M20.75,8.778L20.75,6.825A3.335,3.335 0,0 0,17.425 3.5L15.781,3.5"
+      android:pathData="M18.839,11.413H18.507"
       android:strokeLineJoin="round"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:strokeColor="#666"
+      android:strokeColor="#ffffff"
       android:strokeLineCap="round"/>
   <path
-      android:pathData="M3.382,8.778L3.382,6.821A3.32,3.32 0,0 1,6.699 3.5L8.382,3.5"
+      android:pathData="M7.531,7.068H12.07"
       android:strokeLineJoin="round"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:strokeColor="#666"
+      android:strokeColor="#ffffff"
       android:strokeLineCap="round"/>
   <path
-      android:pathData="M20.75,13.014L20.75,17.545A3.335,3.335 0,0 1,17.425 20.87L15.781,20.87"
+      android:pathData="M2.063,11.635C2.063,4.518 4.662,2.146 12.46,2.146C20.257,2.146 22.856,4.518 22.856,11.635C22.856,18.751 20.257,21.124 12.46,21.124C4.662,21.124 2.063,18.751 2.063,11.635Z"
       android:strokeLineJoin="round"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:strokeColor="#666"
-      android:strokeLineCap="round"/>
-  <path
-      android:pathData="M3.382,13.014L3.382,17.549a3.32,3.32 0,0 0,3.317 3.32L8.382,20.869"
-      android:strokeLineJoin="round"
-      android:strokeWidth="1.5"
-      android:fillColor="#00000000"
-      android:strokeColor="#666"
+      android:fillType="evenOdd"
+      android:strokeColor="#ffffff"
       android:strokeLineCap="round"/>
 </vector>

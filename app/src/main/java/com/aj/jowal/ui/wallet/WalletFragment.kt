@@ -1,14 +1,17 @@
 package com.aj.jowal.ui.wallet
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.aj.jowal.R
 import com.aj.jowal.databinding.FragmentWalletBinding
+import com.aj.jowal.ui.AddCardActivity
 
 class WalletFragment : Fragment() {
 
@@ -30,8 +33,10 @@ class WalletFragment : Fragment() {
         binding!!.viewModel = viewModel
         binding!!.lifecycleOwner = this
 
-        viewModel.cardNumber.observe(viewLifecycleOwner, {
-            viewModel.shibaCard.value = "IR 0445 0404 5454 $it"
+        viewModel.openActivity.observe(viewLifecycleOwner, Observer {
+            if (it){
+                startActivity(Intent(context, AddCardActivity::class.java))
+            }
         })
         return binding!!.root
     }
