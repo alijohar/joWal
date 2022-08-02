@@ -101,11 +101,13 @@
                     android:hint="@string/card_number">
 
                     <EditText
+                        android:id="@+id/card_number_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:maxLength="20"
                         android:imeOptions="actionNext"
                         android:text="@={viewModel.cardNumber}"
-                        android:inputType="number"
+                        android:inputType="phone"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -119,6 +121,7 @@
                     android:hint="@string/name_on_card">
 
                     <EditText
+                        android:id="@+id/name_on_card_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@={viewModel.cardName}"
@@ -137,11 +140,13 @@
                     android:hint="@string/expire_date">
 
                     <EditText
+                        android:id="@+id/expire_date_edittext"
                         android:text="@={viewModel.expireDate}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:maxLength="5"
                         android:imeOptions="actionNext"
-                        android:inputType="datetime"
+                        android:inputType="phone"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
