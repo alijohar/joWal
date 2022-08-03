@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="card"
+            type="com.aj.jowal.ui.models.Card" />
+    </data>
+<androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    app:cardBackgroundColor="@color/black"
+    app:cardCornerRadius="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:background="@{card.checkCard? @color/teal_700: @color/black}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin">
+
+        <!--//TODO: YOU MAY SHOULD TEST   android:src="@{card.bankLogo}"-->
+        <ImageView
+            android:loadImage="@{card.bankLogo}"
+            android:id="@+id/bank_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bank_logo" />
+
+        <TextView
+            android:id="@+id/card_number"
+            android:layout_width="match_parent"
+            android:text="@{card.cardNumber}"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/shiba_number"
+            android:text="@{card.shebaNumber}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:alpha="0.2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/double_activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/card_name"
+                android:layout_width="0dp"
+                android:text="@{card.nameOnCard}"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/expire_date"
+                android:text="@{card.expireDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</layout>

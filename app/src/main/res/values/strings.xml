@@ -12,4 +12,5 @@
     <string name="update_card">Update card</string>
     <string name="cancel">cancel</string>
     <string name="add_card">Add New Card</string>
+    <string name="bank_logo">bankLogo</string>
 </resources>
