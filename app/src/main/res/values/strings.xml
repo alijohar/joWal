@@ -13,4 +13,5 @@
     <string name="cancel">cancel</string>
     <string name="add_card">Add New Card</string>
     <string name="bank_logo">bankLogo</string>
+    <string name="mycard">My Cards</string>
 </resources>

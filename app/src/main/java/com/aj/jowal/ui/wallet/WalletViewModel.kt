@@ -1,15 +1,25 @@
 package com.aj.jowal.ui.wallet
 
-import android.text.Editable
-import android.util.Log
+import android.app.Application
 import android.view.View
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.aj.jowal.ui.adapters.CardsAdapter
-import com.aj.jowal.ui.models.Card
+import com.aj.jowal.ui.data.CardDatabase
+import com.aj.jowal.ui.model.Card
+import com.aj.jowal.ui.repository.CardRepository
 
-class WalletViewModel : ViewModel() {
+class WalletViewModel(application: Application) : AndroidViewModel(application) {
+    private val repo: CardRepository
+    val allCards: LiveData<List<Card>>
+
+    init {
+        val dao = CardDatabase.getDatabase(application).dao()
+        repo = CardRepository(dao)
+        allCards = repo.allCards
+    }
+
     val openActivity = MutableLiveData<Boolean>().apply {
         value = false
     }
@@ -26,14 +36,4 @@ class WalletViewModel : ViewModel() {
 
 
 
-    fun getCardData():ArrayList<Card>{
-        val cardArrayList = ArrayList<Card>()
-        cardArrayList.add(Card(1,2, "6104997563778555", "Ali johar", "0406", "34563554", "IR4485748574875487548"))
-        cardArrayList.add(Card(1,2, "6037997563778555", "Ali johar", "0406", "34563554", "IR4485748574875487548"))
-        cardArrayList.add(Card(1,2, "6444997563778555", "Ali johar", "0406", "34563554", "IR4485748574875487548"))
-        cardArrayList.add(Card(1,2, "6037997563778555", "Ali johar", "0406", "34563554", "IR4485748574875487548"))
-        cardArrayList.add(Card(1,2, "6037997563778555", "Ali johar", "0406", "34563554", "IR4485748574875487548"))
-
-        return cardArrayList
-    }
 }

@@ -1,16 +1,11 @@
-package com.aj.jowal.ui.adapters
+package com.aj.jowal.ui.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.aj.jowal.R
 import com.aj.jowal.databinding.ItemCardBinding
-import com.aj.jowal.ui.models.Card
+import com.aj.jowal.ui.model.Card
 import java.util.*
 
 class CardsAdapter : RecyclerView.Adapter<CardsAdapter.CardsViewHolder>() {

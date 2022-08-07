@@ -9,12 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.aj.jowal.R
 import com.aj.jowal.databinding.FragmentWalletBinding
 import com.aj.jowal.ui.AddCardActivity
-import com.aj.jowal.ui.adapters.CardsAdapter
-import kotlinx.android.synthetic.main.fragment_wallet.*
+import com.aj.jowal.ui.adapter.CardsAdapter
 
 
 class WalletFragment : Fragment() {
@@ -45,8 +43,10 @@ class WalletFragment : Fragment() {
         })
 
         val cardsAdapter = CardsAdapter()
-        cardsAdapter.swapData(viewModel.getCardData())
-        binding!!.recyclerCards.adapter = cardsAdapter
+        viewModel.allCards.observe(viewLifecycleOwner) {
+            cardsAdapter.swapData(it)
+            binding!!.recyclerCards.adapter = cardsAdapter
+        }
 
         return binding!!.root
     }
