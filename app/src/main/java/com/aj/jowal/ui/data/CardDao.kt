@@ -10,7 +10,7 @@ import com.aj.jowal.ui.model.Card
 @Dao
 interface CardDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(card: Card)
 
     @Query("SELECT * FROM card_table")

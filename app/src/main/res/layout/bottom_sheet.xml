@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/double_activity_vertical_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/card_id"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/card_id_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/name_on_card"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/name_on_card_switch"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/expire_date"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/expire_date_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/shiba_number"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/shiba_switch"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_activity_vertical_margin"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/share_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:text="@string/share_text"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/share_image"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:text="@string/share_image"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+</LinearLayout>

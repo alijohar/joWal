@@ -14,4 +14,7 @@
     <string name="add_card">Add New Card</string>
     <string name="bank_logo">bankLogo</string>
     <string name="mycard">My Cards</string>
+    <string name="share_image">Share as image</string>
+    <string name="share_text">share as text</string>
+    <string name="card_info">This is my card deatils</string>
 </resources>

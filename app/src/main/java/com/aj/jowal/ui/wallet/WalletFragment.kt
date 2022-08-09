@@ -42,7 +42,7 @@ class WalletFragment : Fragment() {
             }
         })
 
-        val cardsAdapter = CardsAdapter()
+        val cardsAdapter = CardsAdapter(requireContext())
         viewModel.allCards.observe(viewLifecycleOwner) {
             cardsAdapter.swapData(it)
             binding!!.recyclerCards.adapter = cardsAdapter

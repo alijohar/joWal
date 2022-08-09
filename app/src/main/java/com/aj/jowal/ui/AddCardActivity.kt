@@ -3,12 +3,13 @@ package com.aj.jowal.ui
 import android.os.Bundle
 import android.text.InputFilter
 import android.text.InputFilter.AllCaps
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
+import com.aj.jowal.R
 import com.aj.jowal.databinding.ActivityAddCardBinding
+import com.aj.jowal.ui.model.BankName
 import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
-import kotlinx.android.synthetic.main.toolbar.*
 
 
 class AddCardActivity : AppCompatActivity() {
@@ -22,10 +23,45 @@ class AddCardActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[AddCardViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        // Format four digits to a mask of a credit card number.
-        // Format four digits to a mask of a credit card number.
 
-        binding.cardNumberEdittext.addTextChangedListener(PatternedTextWatcher("####-####-####-####"))
+        viewModel.onFinishFillCard.observe(this) {
+            if (it) {
+                binding.cardNumberEdittext.text.clear()
+                binding.expireDateEdittext.text.clear()
+                binding.nameOnCardEdittext.text.clear()
+                binding.shibaNumberEdittext.text?.clear()
+                binding.cardIdEdittext.text?.clear()
+            }
+        }
+        viewModel.cardNumber.observe(this) {
+
+            if (it.length == 6) {
+                val drawableResource = resources.getIdentifier(
+                    (BankName.from(it!!).name).lowercase(), "drawable",
+                    packageName
+                )
+
+                val colorResource = resources.getIdentifier(
+                    (BankName.from(it).name), "color",
+                    packageName
+                )
+
+                if (drawableResource != 0) {
+                    binding.bankImage.setImageResource(
+                        drawableResource
+                    )
+                }
+
+                if (colorResource != 0) {
+                    binding.cardView.setCardBackgroundColor(
+                        getColor(
+                            colorResource
+                        )
+                    )
+                }
+            }
+        }
+//        binding.cardNumberEdittext.addTextChangedListener(PatternedTextWatcher("################"))
         binding.expireDateEdittext.addTextChangedListener(PatternedTextWatcher("##/##"))
         binding.nameOnCardEdittext.filters = arrayOf<InputFilter>(AllCaps())
         setContentView(binding.root)

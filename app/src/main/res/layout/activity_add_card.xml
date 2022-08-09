@@ -18,9 +18,9 @@
         <include layout="@layout/toolbar" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -31,48 +31,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="@dimen/activity_vertical_margin">
+                android:paddingLeft="@dimen/double_activity_vertical_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/double_activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_horizontal_margin">
 
+                <!--//TODO: YOU MAY SHOULD TEST   android:src="@{card.bankLogo}"-->
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/bank_image"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/bank_logo"
                     android:src="@drawable/ic_temp_bank_logo" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@={viewModel.cardNumber}"
+                    android:text="@{viewModel.cardNumber}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@{viewModel.cardId}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:alpha="0.2"
-                    android:text="@={viewModel.shibaCard}"
+                    android:text="@{viewModel.shebaNumber}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/double_activity_vertical_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:fontFamily="@font/iransans"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@={viewModel.cardName}"
+                        android:text="@{viewModel.cardName}"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@={viewModel.expireDate}"
+                        android:text="@{viewModel.expireDate}"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/white" />
 
@@ -104,7 +121,7 @@
                         android:id="@+id/card_number_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="20"
+                        android:maxLength="28"
                         android:imeOptions="actionNext"
                         android:text="@={viewModel.cardNumber}"
                         android:inputType="phone"
@@ -160,8 +177,10 @@
                     android:hint="@string/card_id">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/card_id_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@={viewModel.cardId}"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:singleLine="true" />
@@ -177,11 +196,12 @@
                     android:hint="@string/shiba_number">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/shiba_number_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:inputType="number"
-                        android:text="@={viewModel.shibaCard}"
+                        android:text="@={viewModel.shebaNumber}"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
