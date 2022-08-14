@@ -13,6 +13,14 @@ class CardRepository(private val cardDao: CardDao) {
     }
 
     suspend fun update(card: Card){
-        cardDao.updateUser(card)
+        cardDao.updateCard(card)
+    }
+
+    suspend fun delete(card: Card){
+        cardDao.deleteCard(card)
+    }
+
+    suspend fun deleteAll(){
+        cardDao.deleteAllCards()
     }
 }

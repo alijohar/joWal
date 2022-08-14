@@ -19,7 +19,16 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_back_menu" />
+            app:navigationIcon="@drawable/ic_back_menu" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@android:color/transparent"
+                android:src="@drawable/ic_delete"
+                android:onClick="@{viewModel::alertForDelete}"/>
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"

@@ -1,6 +1,8 @@
 package com.aj.jowal.ui
 
+import android.app.AlertDialog
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,6 +13,8 @@ import com.aj.jowal.ui.model.Card
 import com.aj.jowal.ui.repository.CardRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.suspendCoroutine
 
 class UpdateCardViewModel(application: Application) : AndroidViewModel(application) {
     val cardNumber = MutableLiveData<String>()
@@ -19,6 +23,9 @@ class UpdateCardViewModel(application: Application) : AndroidViewModel(applicati
     val expireDate = MutableLiveData<String>()
     val shebaNumber = MutableLiveData<String>()
     val onFinishFillCard = MutableLiveData<Boolean>().apply {
+        value = false
+    }
+    val onDeleteItemClicked = MutableLiveData<Boolean>().apply {
         value = false
     }
     val card = MutableLiveData<Card>()
@@ -48,6 +55,16 @@ class UpdateCardViewModel(application: Application) : AndroidViewModel(applicati
             repo.update(cardAfterUpdate)
             onFinishFillCard.postValue(true)
         }
+    }
+
+
+    fun delete() = viewModelScope.launch(Dispatchers.IO) {
+        card.value?.let { repo.delete(it) }
+        onFinishFillCard.postValue(true)
+    }
+
+    fun alertForDelete(view:View){
+        onDeleteItemClicked.value = true
     }
 
      fun updateFields() {

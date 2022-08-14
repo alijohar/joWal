@@ -1,7 +1,9 @@
 package com.aj.jowal.ui
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.aj.jowal.databinding.ActivityUpdateCardBinding
 import com.aj.jowal.ui.model.Card
@@ -29,11 +31,26 @@ class UpdateCardActivity : AppCompatActivity() {
                 onBackPressed()
             }
         }
+
+        viewModel.onDeleteItemClicked.observe(this) {
+            if (it) {
+                showAlertForDeleter()
+            }
+        }
         setContentView(binding.root)
 
     }
 
-
+    fun showAlertForDeleter(){
+        val builder = AlertDialog.Builder(this)
+        builder.setPositiveButton("DELETE"){_, _ ->
+            viewModel.delete()
+        }
+        builder.setNegativeButton("CANCEL"){_, _ -> }
+        builder.setTitle("Delete this card?")
+        builder.setMessage("Are you sure you want to delete this card?")
+        builder.create().show()
+    }
 
 
 }

@@ -14,6 +14,12 @@ interface CardDao {
     fun getAllcards(): LiveData<List<Card>>
 
     @Update
-    suspend fun updateUser(card:Card)
+    suspend fun updateCard(card:Card)
+
+    @Query("DELETE FROM card_table")
+    suspend fun deleteAllCards()
+
+    @Delete
+    suspend fun deleteCard(card: Card)
 
 }
