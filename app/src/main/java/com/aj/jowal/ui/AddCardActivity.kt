@@ -21,6 +21,9 @@ class AddCardActivity : AppCompatActivity() {
 
         binding = ActivityAddCardBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[AddCardViewModel::class.java]
+        binding.topAppBar.setNavigationOnClickListener {
+            onBackPressed()
+        }
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
