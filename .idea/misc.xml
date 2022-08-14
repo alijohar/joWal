@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/melli_d.xml" value="0.3255" />
         <entry key="app/src/main/res/drawable/melliran.xml" value="0.3255" />
         <entry key="app/src/main/res/drawable/radius_rounded.xml" value="0.213" />
+        <entry key="app/src/main/res/drawable/radius_rounded_top.xml" value="0.356" />
         <entry key="app/src/main/res/drawable/sarmaie.xml" value="0.362" />
         <entry key="app/src/main/res/drawable/selector_color.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/shahr.xml" value="0.362" />
@@ -20,6 +21,7 @@
         <entry key="app/src/main/res/font/font.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/activity_add_card.xml" value="0.5197278911564626" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.41510416666666666" />
+        <entry key="app/src/main/res/layout/activity_update_card.xml" value="0.4083333333333333" />
         <entry key="app/src/main/res/layout/bottom_sheet.xml" value="0.40729166666666666" />
         <entry key="app/src/main/res/layout/fragment_scan.xml" value="0.41510416666666666" />
         <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.41510416666666666" />

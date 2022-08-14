@@ -64,9 +64,6 @@ class AddCardActivity : AppCompatActivity() {
                 }
             }
         }
-//        binding.cardNumberEdittext.addTextChangedListener(PatternedTextWatcher("################"))
-        binding.expireDateEdittext.addTextChangedListener(PatternedTextWatcher("##/##"))
-        binding.nameOnCardEdittext.filters = arrayOf<InputFilter>(AllCaps())
         setContentView(binding.root)
 
     }

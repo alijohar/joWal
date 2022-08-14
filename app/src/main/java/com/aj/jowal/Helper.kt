@@ -7,6 +7,7 @@ import com.aj.jowal.ui.model.BankName
 
 class Helper {
     companion object {
+
         fun shareText(context: Context, subject: String?, body: String?) {
             val txtIntent = Intent(Intent.ACTION_SEND)
             txtIntent.type = "text/plain"

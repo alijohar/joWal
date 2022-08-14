@@ -2,8 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/double_activity_vertical_margin"
     android:orientation="vertical">
+    <View
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_width="100dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/radius_rounded"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/double_activity_vertical_margin"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/card_number"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/card_number_switch"
+            android:layout_width="wrap_content"
+            android:checked="true"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +50,7 @@
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/card_id_switch"
             android:layout_width="wrap_content"
+            android:checked="true"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -53,6 +85,7 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/expire_date_switch"
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -101,6 +134,6 @@
             android:text="@string/share_image"
             android:textColor="@color/black"
             />
-
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

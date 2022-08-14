@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.aj.jowal.ui.AddCardViewModel" />
+            type="com.aj.jowal.ui.UpdateCardViewModel" />
     </data>
 
     <LinearLayout
@@ -165,7 +165,7 @@
                         android:text="@={viewModel.expireDate}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="4"
+                        android:maxLength="5"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:singleLine="true" />
@@ -209,30 +209,30 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:background="@android:color/transparent"
-                    android:text="@string/update_card"
-                    android:onClick="@{()-> viewModel.insert}"
-                    android:textColor="?attr/colorOnSecondary" />
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:background="@android:color/transparent"
+                        android:text="@string/update_card"
+                        android:onClick="@{()-> viewModel.update}"
+                        android:textColor="?attr/colorOnSecondary" />
 
-                <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:background="@android:color/transparent"
-                    android:text="@string/cancel"
-                    android:alpha=".7"
-                    android:textColor="?attr/colorOnSecondary" />
-            </LinearLayout>
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:background="@android:color/transparent"
+                        android:text="@string/cancel"
+                        android:alpha=".7"
+                        android:textColor="?attr/colorOnSecondary" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
