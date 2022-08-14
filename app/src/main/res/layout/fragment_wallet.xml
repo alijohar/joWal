@@ -46,6 +46,13 @@
                         android:onClick="@{viewModel::openAddCardActivity}"
                         android:backgroundTint="@android:color/transparent"
                         />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete_all"
+                        android:onClick="@{viewModel::alertForDelete}"
+                        android:backgroundTint="@android:color/transparent"
+                        />
                 </LinearLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>

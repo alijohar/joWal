@@ -1,5 +1,6 @@
 package com.aj.jowal.ui.wallet
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,11 +49,28 @@ class WalletFragment : Fragment() {
             binding!!.recyclerCards.adapter = cardsAdapter
         }
 
+        viewModel.onDeleteItemClicked.observe(viewLifecycleOwner) {
+            if (it) {
+                showAlertForDeleteAll()
+            }
+        }
+
         return binding!!.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    fun showAlertForDeleteAll(){
+        val builder = AlertDialog.Builder(context)
+        builder.setPositiveButton("DELETE ALL"){_, _ ->
+            viewModel.deleteAll()
+        }
+        builder.setNegativeButton("CANCEL"){_, _ -> }
+        builder.setTitle("Delete this card?")
+        builder.setMessage("Are you sure you want to delete this card?")
+        builder.create().show()
     }
 }

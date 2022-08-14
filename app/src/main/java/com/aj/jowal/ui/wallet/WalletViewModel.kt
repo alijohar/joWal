@@ -2,17 +2,19 @@ package com.aj.jowal.ui.wallet
 
 import android.app.Application
 import android.view.View
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.aj.jowal.ui.data.CardDatabase
 import com.aj.jowal.ui.model.Card
 import com.aj.jowal.ui.repository.CardRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class WalletViewModel(application: Application) : AndroidViewModel(application) {
     private val repo: CardRepository
     val allCards: LiveData<List<Card>>
+    val onDeleteItemClicked = MutableLiveData<Boolean>().apply {
+        value = false
+    }
 
     init {
         val dao = CardDatabase.getDatabase(application).dao()
@@ -30,10 +32,16 @@ class WalletViewModel(application: Application) : AndroidViewModel(application) 
     val text: LiveData<String> = _text
 
 
-    fun openAddCardActivity(view: View){
+    fun openAddCardActivity(view: View) {
         openActivity.value = true
     }
 
+    fun alertForDelete(view: View) {
+        onDeleteItemClicked.value = true
+    }
 
+    fun deleteAll() = viewModelScope.launch(Dispatchers.IO) {
+        repo.deleteAll()
+    }
 
 }
