@@ -37,8 +37,9 @@ class AddCardActivity : AppCompatActivity() {
             }
         }
         viewModel.cardNumber.observe(this) {
-
             if (it.length == 6) {
+                var bankName: BankName? = null
+                bankName = BankName.from(it!!)
                 val drawableResource = resources.getIdentifier(
                     (BankName.from(it!!).name).lowercase(), "drawable",
                     packageName
