@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_back_menu" >
-
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,6 +38,18 @@
             android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/black"
             app:cardCornerRadius="@dimen/activity_horizontal_margin">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bk"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:alpha="0.08"
+                android:contentDescription="@string/bank_logo"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,9 +66,10 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:contentDescription="@string/bank_logo"
-                    android:src="@drawable/ic_temp_bank_logo" />
+                    android:src="@drawable/none" />
 
                 <TextView
+                    android:id="@+id/card_number_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -100,6 +112,7 @@
                         android:layout_weight="1"/>
 
                     <TextView
+                        android:id="@+id/expire_date_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.expireDate}"
@@ -108,6 +121,7 @@
 
                 </LinearLayout>
             </LinearLayout>
+            </FrameLayout>
         </androidx.cardview.widget.CardView>
 
         <ScrollView
@@ -174,7 +188,7 @@
                         android:text="@={viewModel.expireDate}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="5"
+                        android:maxLength="4"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:singleLine="true" />

@@ -27,6 +27,9 @@ class AddCardActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        binding.cardNumberText.addTextChangedListener(PatternedTextWatcher("####    ####    ####    ####"))
+        binding.expireDateText.addTextChangedListener(PatternedTextWatcher("##   ##"))
+
         viewModel.onFinishFillCard.observe(this) {
             if (it) {
                 binding.cardNumberEdittext.text.clear()
@@ -37,21 +40,24 @@ class AddCardActivity : AppCompatActivity() {
             }
         }
         viewModel.cardNumber.observe(this) {
-            if (it.length == 6) {
-                var bankName: BankName? = null
-                bankName = BankName.from(it!!)
+            if (it.length >= 6) {
+                val first6Number = it.substring(0,6)
+
                 val drawableResource = resources.getIdentifier(
-                    (BankName.from(it!!).name).lowercase(), "drawable",
+                    (BankName.from(first6Number).name).lowercase(), "drawable",
                     packageName
                 )
 
                 val colorResource = resources.getIdentifier(
-                    (BankName.from(it).name), "color",
+                    (BankName.from(first6Number).name), "color",
                     packageName
                 )
 
                 if (drawableResource != 0) {
                     binding.bankImage.setImageResource(
+                        drawableResource
+                    )
+                    binding.bk.setImageResource(
                         drawableResource
                     )
                 }

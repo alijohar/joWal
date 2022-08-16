@@ -6,6 +6,7 @@ import com.aj.jowal.ui.data.CardDatabase
 import com.aj.jowal.ui.model.BankName
 import com.aj.jowal.ui.model.Card
 import com.aj.jowal.ui.repository.CardRepository
+import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -26,7 +27,6 @@ class AddCardViewModel(application: Application) : AndroidViewModel(application)
         val dao = CardDatabase.getDatabase(application).dao()
         repo = CardRepository(dao)
         allCards = repo.allCards
-
     }
 
     fun insert() = viewModelScope.launch(Dispatchers.IO) {

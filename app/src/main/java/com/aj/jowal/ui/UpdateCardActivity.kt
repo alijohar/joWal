@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.aj.jowal.databinding.ActivityUpdateCardBinding
+import com.aj.jowal.ui.model.BankName
 import com.aj.jowal.ui.model.Card
+import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
 
 class UpdateCardActivity : AppCompatActivity() {
     private lateinit var card: Card
@@ -24,6 +26,8 @@ class UpdateCardActivity : AppCompatActivity() {
         viewModel.card.value = card
         viewModel.updateFields()
         binding.viewModel = viewModel
+        binding.cardNumberText.addTextChangedListener(PatternedTextWatcher("####    ####    ####    ####"))
+        binding.expireDateText.addTextChangedListener(PatternedTextWatcher("##   ##"))
         binding.lifecycleOwner = this
 
         viewModel.onFinishFillCard.observe(this) {
@@ -37,6 +41,39 @@ class UpdateCardActivity : AppCompatActivity() {
                 showAlertForDeleter()
             }
         }
+
+        viewModel.cardNumber.observe(this) {
+            if (it.length >= 6) {
+                val first6Number = it.substring(0,6)
+                val drawableResource = resources.getIdentifier(
+                    (BankName.from(first6Number).name).lowercase(), "drawable",
+                    packageName
+                )
+
+                val colorResource = resources.getIdentifier(
+                    (BankName.from(first6Number).name), "color",
+                    packageName
+                )
+
+                if (drawableResource != 0) {
+                    binding.bankImage.setImageResource(
+                        drawableResource
+                    )
+                    binding.bk.setImageResource(
+                        drawableResource
+                    )
+                }
+
+                if (colorResource != 0) {
+                    binding.cardView.setCardBackgroundColor(
+                        getColor(
+                            colorResource
+                        )
+                    )
+                }
+            }
+        }
+
         setContentView(binding.root)
 
     }

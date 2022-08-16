@@ -8,11 +8,11 @@ enum class BankName(var fist6Numbets:String) {
 
     companion object {
         fun from(findValue: String): BankName {
-            try {
+            return try {
                 values().first { it.fist6Numbets == findValue }
             }catch (e:Exception){
+                NONE
             }
-            return NONE
         }
     }
 }

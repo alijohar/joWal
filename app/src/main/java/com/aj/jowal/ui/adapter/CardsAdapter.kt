@@ -3,7 +3,6 @@ package com.aj.jowal.ui.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
@@ -48,9 +47,11 @@ class CardsAdapter(var context: Context) : RecyclerView.Adapter<CardsAdapter.Car
 
         holder.itemCardBinding.card = card
         holder.itemCardBinding.cardNumber.addTextChangedListener(PatternedTextWatcher("####    ####    ####    ####"))
-        holder.itemCardBinding.expireDate.addTextChangedListener(PatternedTextWatcher("##/##"))
+        holder.itemCardBinding.expireDate.addTextChangedListener(PatternedTextWatcher("##   ##"))
         if (drawableResource != 0) {
             holder.itemCardBinding.bankImage.setImageResource(drawableResource)
+            holder.itemCardBinding.bk.setImageResource(drawableResource)
+
         }
         if (colorResource != 0) {
             holder.itemCardBinding.cardView.setCardBackgroundColor(
@@ -66,6 +67,9 @@ class CardsAdapter(var context: Context) : RecyclerView.Adapter<CardsAdapter.Car
     @SuppressLint("NotifyDataSetChanged")
     fun swapData(data: List<Card>) {
         this.data = data
+
+        Collections.sort(data,
+            Comparator<Card?> { lhs, rhs -> lhs.nameOnCard.compareTo(rhs.nameOnCard) })
         notifyDataSetChanged()
     }
 
